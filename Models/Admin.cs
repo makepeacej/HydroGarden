@@ -2,6 +2,10 @@
 
 {
     using System.Collections;
+    /// <summary>
+    /// The admin class will contain the main methods behind the logic of the web 
+    /// application. 
+    /// </summary>
     public class Admin
     {
         private static ArrayList listOfProducts = new ArrayList();
@@ -49,6 +53,12 @@
             }
         }
 
+        /// <summary>
+        /// Delete an order using the id from the list of orders 
+        /// </summary>
+        /// <param name="id">
+        /// int id of the order
+        /// </param>
         public static void deleteOrder(int id)
         {
             for (int i = 0; i < listOfOrders.Count; i++)
@@ -62,6 +72,12 @@
             }
         }
 
+        /// <summary>
+        /// Search the list of products to find the product with
+        /// the given id. 
+        /// </summary>
+        /// <param name="id">int id of a product</param>
+        /// <returns>product object</returns>
         public static Product searchProduct(int id)
         {
             foreach (Product p in listOfProducts)
@@ -74,6 +90,12 @@
             return null; //id does not exist
         }
 
+        /// <summary>
+        /// Search the list of products to find the product with
+        /// the given name. 
+        /// </summary>
+        /// <param name="name">string name of the product</param>
+        /// <returns>product object</returns>
         public static Product searchProduct(String name)
         {
             foreach (Product p in listOfProducts)
@@ -86,6 +108,12 @@
             return null;
         }
 
+        /// <summary>
+        /// Search the list of orders to find the order with 
+        /// the given id
+        /// </summary>
+        /// <param name="id"> int id of the order</param>
+        /// <returns>order object</returns>
         public static Order searchOrder(int id)
         {
             foreach (Order o in listOfOrders)
@@ -98,6 +126,12 @@
             return null; //id does not exist
         }
 
+        /// <summary>
+        /// Search the list of orders to find the order with 
+        /// the given customer name
+        /// </summary>
+        /// <param name="custName">the customer that placed the order</param>
+        /// <returns>order object</returns>
         public static Order searchOrder(String custName)
         {
             foreach (Order o in listOfOrders)
@@ -110,6 +144,10 @@
             return null; //Customer does not have an order
         }
 
+        /// <summary>
+        /// Change the measurement from ounces to pounds 
+        /// and vice versa. 
+        /// </summary>
         public void changeMeasurement()
         {
             if (measurement.Equals("lbs"))
