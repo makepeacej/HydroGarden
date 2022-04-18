@@ -7,7 +7,10 @@
         public string name { get; set; }
         public double price { get; set; }//set the default measurement to pounds and convert if needed everywhere else
         public bool availability { get; set; } = true;
-       
+       public Product()
+        {
+
+        }
         /// <summary>
         /// Constructor to create a local product object to make changes from the database.
         /// Can be used to make changes to a product and send the updates to the database. 

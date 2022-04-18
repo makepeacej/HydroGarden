@@ -16,6 +16,14 @@ namespace HydroGarden.Controllers
             return View();
         }
 
+        public IActionResult ProcessRegister(UserModel user)
+        {
+            //Add user to the db
+            SecurityServices security = new SecurityServices();
+            security.canUse(user);
+            return RedirectToAction("Index", "Home");
+        }
+
 
         public IActionResult ProcessLogin(UserModel user)
         {
