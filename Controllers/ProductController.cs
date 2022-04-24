@@ -1,4 +1,5 @@
 ﻿using HydroGarden.Models;
+using HydroGarden.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HydroGarden.Controllers
@@ -8,7 +9,10 @@ namespace HydroGarden.Controllers
         public IActionResult Index()
         {
             List<Product> productList = new List<Product>();
-            productList.Add(new Product{name = "Broccoli", price = 1.99, availability = true});
+
+            SecurityServices security = new SecurityServices();
+            security.loadProducts();
+            productList = Admin.getListOfProducts();
             return View(productList);
         }
     }

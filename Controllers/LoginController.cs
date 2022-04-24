@@ -31,6 +31,7 @@ namespace HydroGarden.Controllers
 
             if (security.IsValid(user))
             {
+                user.Id = Admin.custID;
                 return View("LoginSuccess", user);
             }
             else

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Documents\SQL Table Queries\" />
     <Folder Include="Views\Products\" />
   </ItemGroup>
 

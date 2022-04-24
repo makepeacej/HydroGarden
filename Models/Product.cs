@@ -1,12 +1,16 @@
-﻿namespace HydroGarden.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HydroGarden.Models
 {
     public class Product
     {
         
         public int id { get; set; }
         public string name { get; set; }
+        [DataType(DataType.Currency)]
         public double price { get; set; }//set the default measurement to pounds and convert if needed everywhere else
         public bool availability { get; set; } = true;
+        
        public Product()
         {
 

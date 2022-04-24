@@ -32,7 +32,12 @@ namespace HydroGarden.Services
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
+                        while (reader.Read())
+                        {
+                            Admin.custID = reader.GetInt32(0);
+                        }
                         success = true;
+
                     }
                 }
                 catch (Exception e)

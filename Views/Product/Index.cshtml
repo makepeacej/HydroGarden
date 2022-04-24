@@ -6,9 +6,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayName("Amount")
-            </th>
+     
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
@@ -18,18 +16,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.availability)
             </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @using (Html.BeginForm("Amount"))
-                {
-                 <input type="text" name="amount" id="amount" />
-                 }
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.name)
             </td>
@@ -39,11 +32,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.availability)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+            
         </tr>
 }
     </tbody>

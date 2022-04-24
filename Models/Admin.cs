@@ -8,9 +8,16 @@
     /// </summary>
     public class Admin
     {
-        private static ArrayList listOfProducts = new ArrayList();
-        private static ArrayList listOfOrders = new ArrayList();
+        private static List<Product> listOfProducts = new List<Product>();
+        private static List<Order> listOfOrders = new List<Order>();
         private string measurement = "lbs"; //oz or lbs
+
+        public static List<Product> getListOfProducts() { return listOfProducts; }
+        public static List<Order> getListOfOrders() { return listOfOrders; }
+
+        public static void clearProducts() { listOfProducts.Clear(); }
+        public static int custID { get; set; }
+        public static string custName { get; set; }
 
         /// <summary>
         /// Add a product to the arraylist of products

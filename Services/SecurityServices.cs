@@ -6,12 +6,13 @@ namespace HydroGarden.Services
     {
        
         usersDAO usersDAO = new usersDAO();
+        productsDAO productsDAO = new productsDAO();
 
         public SecurityServices()
         {
            
         }
-
+        
         public bool IsValid(UserModel user)
         {
             return usersDAO.FindUserByNameAndPass(user);
@@ -20,9 +21,12 @@ namespace HydroGarden.Services
         public void canUse(UserModel user)
         {
             usersDAO.CreateUser(user);
-            Console.WriteLine("Success");
-            Console.WriteLine("username: " + user.Username);
 
+        }
+
+        public void loadProducts()
+        {
+            productsDAO.GetProductInfo();
         }
     }
 }
