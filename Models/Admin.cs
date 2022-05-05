@@ -18,6 +18,7 @@
         public static void clearProducts() { listOfProducts.Clear(); }
         public static int custID { get; set; }
         public static string custName { get; set; }
+        public static bool currentUserLogin { get; set; } = false;
 
         /// <summary>
         /// Add a product to the arraylist of products

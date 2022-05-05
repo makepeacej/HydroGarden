@@ -35,8 +35,10 @@ namespace HydroGarden.Services
                         while (reader.Read())
                         {
                             Admin.custID = reader.GetInt32(0);
+                            Admin.custName = reader.GetString(1);
                         }
                         success = true;
+                        
 
                     }
                 }
@@ -44,7 +46,7 @@ namespace HydroGarden.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-            
+                Admin.currentUserLogin = success;
                 return success;
             }
 
