@@ -40,5 +40,16 @@ namespace HydroGarden.Controllers
             }
             
         }
+
+        public IActionResult ViewProfile()
+        {
+            return View("LoginSuccess");
+        }
+
+        public IActionResult Logout()
+        {
+            Admin.currentUserLogin = false;
+            return View("Index");
+        }
     }
 }

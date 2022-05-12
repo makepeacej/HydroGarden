@@ -21,6 +21,10 @@ namespace HydroGarden.Controllers
             return View(productList);
         }
 
+        public IActionResult CreateOrder()
+        {
+            return View();
+        }
         
     }
 }

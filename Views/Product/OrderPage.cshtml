@@ -1,17 +1,15 @@
 ﻿@model IEnumerable<HydroGarden.Models.Product>
-@using HydroGarden.Models
+
 <p>
-    <a asp-action="CreateOrder">Create Order</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            @if (Admin.currentUserLogin)
-            {
+     
             <th>
-                @Html.DisplayName("Quantity in Pounds")
+                @Html.DisplayName("Quantity")
             </th>
-            }
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
@@ -27,15 +25,10 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            
+            <th>
                 
-            @if (Admin.currentUserLogin)
-            {        
-            <td>
-                <form method="post">
-                    <input type="number" name="amount" value="" />
-                </form>
-            </td>
-            }   
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.name)
             </td>
@@ -48,10 +41,5 @@
             
         </tr>
 }
-
     </tbody>
-
 </table>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
