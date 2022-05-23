@@ -16,7 +16,7 @@
 
         public static void clearProducts() { listOfProducts.Clear(); }
         public static int custID { get; set; }
-        public static string custName { get; set; }
+        public static string? custName { get; set; }
         public static bool currentUserLogin { get; set; } = false;
 
         private static Cart cart = new Cart() { UserId = custID};
@@ -92,7 +92,7 @@
         /// </summary>
         /// <param name="id">int id of a product</param>
         /// <returns>product object</returns>
-        public static Product searchProduct(int id)
+        public static Product? searchProduct(int id)
         {
             foreach (Product p in listOfProducts)
             {
@@ -110,7 +110,7 @@
         /// </summary>
         /// <param name="name">string name of the product</param>
         /// <returns>product object</returns>
-        public static Product searchProduct(String name)
+        public static Product? searchProduct(String name)
         {
             foreach (Product p in listOfProducts)
             {
@@ -128,7 +128,7 @@
         /// </summary>
         /// <param name="id"> int id of the order</param>
         /// <returns>order object</returns>
-        public static Order searchOrder(int id)
+        public static Order? searchOrder(int id)
         {
             foreach (Order o in listOfOrders)
             {
@@ -146,7 +146,7 @@
         /// </summary>
         /// <param name="custName">the customer that placed the order</param>
         /// <returns>order object</returns>
-        public static Order searchOrder(String custName)
+        public static Order? searchOrder(String custName)
         {
             foreach (Order o in listOfOrders)
             {

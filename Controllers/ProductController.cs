@@ -34,5 +34,15 @@ namespace HydroGarden.Controllers
             return View(Admin.getCart().Items);
         }
 
+        public IActionResult ProcessOrder()
+        {
+            //Take order and cust information
+            //Currently, Cust is required to be logged in to place order
+            //Create order object
+            //Add to db
+            //Update cust profile of list of orders
+            return RedirectToAction("Index");
+        }
+
     }
 }

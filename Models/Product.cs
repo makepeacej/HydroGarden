@@ -5,12 +5,12 @@ namespace HydroGarden.Models
     public class Product
     {
 
-        public int id { get; set; }
-        public string name { get; set; }
+        public int? id { get; set; }
+        public string? name { get; set; }
         [DataType(DataType.Currency)]
-        public double price { get; set; }//set the default measurement to pounds and convert if needed everywhere else
+        public double? price { get; set; }//set the default measurement to pounds and convert if needed everywhere else
         public bool availability { get; set; } = true;
-        public string ImageURL { get; set; }
+        public string? ImageURL { get; set; }
 
         public Product()
         {
@@ -26,9 +26,9 @@ namespace HydroGarden.Models
         /// <param name="av">bool availability of the product</param>
         public Product(int id, string name, double price, bool av)
         {
-            id = id;
-            name = name;
-            price = price;
+            this.id = id;
+            this.name = name;
+            this.price = price;
             availability = av;
         }
 

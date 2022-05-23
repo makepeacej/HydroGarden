@@ -9,7 +9,7 @@
         public string datePlace { get; set; }
         public string dateScheduled { get; set; }
         public bool isCompleted { get; set; } = false;
-        public IDictionary<Product, int> orderList { get; set; }
+        public Cart cart { get; set; }
 
         /// <summary>
         /// Constructor for the orders that customers will place for products. This constructor is used for 
@@ -22,7 +22,7 @@
         /// <param name="datePlace">string the date placed</param>
         /// <param name="dateScheduled">string the date scheduled for completion</param>
         /// <param name="orList">dictionary containing amount of each product desired</param>
-        public Order(int id, string customerName, string phone, string email, string datePlace, string dateScheduled, IDictionary<Product, int> orList)
+        public Order(int id, string customerName, string phone, string email, string datePlace, string dateScheduled, Cart c)
         {
             this.id = id;
             this.customerName = customerName;
@@ -30,7 +30,7 @@
             this.email = email;
             this.datePlace = datePlace;
             this.dateScheduled = dateScheduled;
-            this.orderList = orList;
+            this.cart = c;
         }
 
         /// <summary>
@@ -43,14 +43,14 @@
         /// <param name="datePlace">string the date placed</param>
         /// <param name="dateScheduled">string the date scheduled for completion</param>
         /// <param name="orList">dictionary containing amount of each product desired</param>
-        public Order(string customerName, string phone, string email, string datePlace, string dateScheduled, IDictionary<Product, int> orList)
+        public Order(string customerName, string phone, string email, string datePlace, string dateScheduled, Cart c)
         {
             this.customerName = customerName;
             this.phone = phone;
             this.email = email;
             this.datePlace = datePlace;
             this.dateScheduled = dateScheduled;
-            this.orderList = orList;
+            this.cart = c;
         }
     }
 }
