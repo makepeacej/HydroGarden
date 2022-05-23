@@ -36,9 +36,9 @@ namespace HydroGarden.Controllers
             }
             else
             {
-                return View("LoginFailure",user);
+                return View("LoginFailure", user);
             }
-            
+
         }
 
         public IActionResult ViewProfile()

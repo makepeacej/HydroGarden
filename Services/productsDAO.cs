@@ -12,7 +12,7 @@ namespace HydroGarden.Services
             Admin.clearProducts();
             string sqlStatement = "SELECT * FROM Products";
 
-            using(SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
@@ -25,20 +25,21 @@ namespace HydroGarden.Services
                         Product product = new Product();
                         product.id = (int)reader["productID"];
                         product.name = (string)reader["Name"];
-                        
-                        
+
+
                         product.availability = (bool)reader["availability"];
-                        
-                        product.price = Math.Round((double)reader["price"],2);
+
+                        product.price = Math.Round((double)reader["price"], 2);
                         Admin.addProduct(product);
 
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
             }
-            
+
         }
     }
 }

@@ -13,18 +13,26 @@ namespace HydroGarden.Controllers
             SecurityServices security = new SecurityServices();
             security.loadProducts();
             productList = Admin.getListOfProducts();
-            if (Admin.currentUserLogin)
-            {
-                return View("OrderPage",productList);
-            }
             
+
             return View(productList);
         }
 
-        public IActionResult CreateOrder()
+        
+
+        public IActionResult AddToCart(int productID, decimal Qty)
         {
-            return View();
+            CartItem cartItem = new CartItem();
+            cartItem.ProductID = productID;
+            cartItem.Qty = Qty;
+            Admin.getCart().AddToCart(cartItem);
+            return RedirectToAction("Index");
         }
         
+        public IActionResult SubmitOrderPage()
+        {
+            return View(Admin.getCart().Items);
+        }
+
     }
 }

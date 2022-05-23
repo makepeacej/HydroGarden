@@ -22,7 +22,7 @@
         /// <param name="datePlace">string the date placed</param>
         /// <param name="dateScheduled">string the date scheduled for completion</param>
         /// <param name="orList">dictionary containing amount of each product desired</param>
-        public Order(int id, string customerName, string phone, string email, string datePlace, string dateScheduled, IDictionary<Product,int> orList)
+        public Order(int id, string customerName, string phone, string email, string datePlace, string dateScheduled, IDictionary<Product, int> orList)
         {
             this.id = id;
             this.customerName = customerName;

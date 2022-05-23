@@ -1,10 +1,10 @@
-﻿@model IEnumerable<HydroGarden.Models.Product>
+﻿@model IEnumerable<HydroGarden.Models.CartItem>
 @using HydroGarden.Models
 
     <tbody>
         @if(Model == null)
         {
-            <h3>Loading Products . . .</h3>
+            <h3>Cart Summary</h3>
 
         }
         else{
@@ -13,7 +13,7 @@
             @if(productCount > 0)
             {
                 const int itemsPerRow = 4;
-                var productRowList = new List<Product>();
+                var productRowList = new List<CartItem>();
                 @for(int i =0; i<productCount; i++)
                 {
                     productRowList = Model.Skip(i * itemsPerRow).Take(itemsPerRow).ToList();
@@ -59,9 +59,7 @@
         }
 
     </tbody>
-
-
-}
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

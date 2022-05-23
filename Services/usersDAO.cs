@@ -6,7 +6,7 @@ namespace HydroGarden.Services
     public class usersDAO
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=test;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
+
 
         /// <summary>
         /// Will change in future to save user basic info and orders 
@@ -38,7 +38,7 @@ namespace HydroGarden.Services
                             Admin.custName = reader.GetString(1);
                         }
                         success = true;
-                        
+
 
                     }
                 }
@@ -53,7 +53,7 @@ namespace HydroGarden.Services
 
 
         }
-    
+
 
         public void CreateUser(UserModel user)
         {
@@ -68,7 +68,7 @@ namespace HydroGarden.Services
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    
+
                 }
                 catch (Exception e)
                 {

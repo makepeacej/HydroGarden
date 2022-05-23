@@ -1,7 +1,6 @@
 ﻿namespace HydroGarden.Models
 
 {
-    using System.Collections;
     /// <summary>
     /// The admin class will contain the main methods behind the logic of the web 
     /// application. 
@@ -19,6 +18,13 @@
         public static int custID { get; set; }
         public static string custName { get; set; }
         public static bool currentUserLogin { get; set; } = false;
+
+        private static Cart cart = new Cart() { UserId = custID};
+        public static Cart getCart() { return cart; }
+
+        
+
+       
 
         /// <summary>
         /// Add a product to the arraylist of products
