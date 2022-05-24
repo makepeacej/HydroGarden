@@ -30,6 +30,7 @@ namespace HydroGarden.Services
                         product.availability = (bool)reader["availability"];
 
                         product.price = Math.Round((double)reader["price"], 2);
+                        product.ImageURL = "/Images/" + product.name + ".jpg";
                         Admin.addProduct(product);
 
                     }

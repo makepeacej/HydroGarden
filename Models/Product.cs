@@ -10,7 +10,7 @@ namespace HydroGarden.Models
         [DataType(DataType.Currency)]
         public double? price { get; set; }//set the default measurement to pounds and convert if needed everywhere else
         public bool availability { get; set; } = true;
-        public string? ImageURL { get; set; }
+        public string ImageURL { get; set; }
 
         public Product()
         {
