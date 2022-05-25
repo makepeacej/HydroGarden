@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<HydroGarden.Models.Product>
 @using HydroGarden.Models
-
+<link rel="stylesheet" href="~/css/site.css" />
     <tbody>
         @if(Model == null)
         {
@@ -28,9 +28,9 @@
                                 <h5 class="card-title mb-3">
                                     @item.name
                                 </h5>
-                                <img src=@item.ImageURL.ToString() alt=@item.name style="width:70%">
+                                <img src=@item.ImageURL.ToString() alt=@item.name>
                                 <p class="card-text">
-                                    <b>@item.price.ToString()</b>
+                                    <b>$@item.price</b>
                                 </p>
                                 <form asp-action="AddToCart"
                                     asp-route-productID="@item.id"
