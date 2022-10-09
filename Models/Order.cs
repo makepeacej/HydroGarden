@@ -3,6 +3,7 @@
     public class Order
     {
         public int id { get; set; }
+        public int custId { get; set; }
         public string customerName { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
@@ -21,7 +22,7 @@
         /// <param name="email">string customer's email</param>
         /// <param name="datePlace">string the date placed</param>
         /// <param name="dateScheduled">string the date scheduled for completion</param>
-        /// <param name="orList">dictionary containing amount of each product desired</param>
+        /// 
         public Order(int id, string customerName, string phone, string email, string datePlace, string dateScheduled, Cart c)
         {
             this.id = id;
@@ -42,7 +43,7 @@
         /// <param name="email">string customer's email</param>
         /// <param name="datePlace">string the date placed</param>
         /// <param name="dateScheduled">string the date scheduled for completion</param>
-        /// <param name="orList">dictionary containing amount of each product desired</param>
+        /// <param name="c">Cart containing the list of products and their amounts</param>
         public Order(string customerName, string phone, string email, string datePlace, string dateScheduled, Cart c)
         {
             this.customerName = customerName;
@@ -51,6 +52,32 @@
             this.datePlace = datePlace;
             this.dateScheduled = dateScheduled;
             this.cart = c;
+        }
+
+        /// <summary>
+        /// Constructor for the orders that customers will place for products. This constructor is used for 
+        /// changes from the database. 
+        /// </summary>
+        /// <param name="id">int id</param>
+        /// <param name="custId"></param>
+        /// <param name="customerName"></param>
+        /// <param name="phone"></param>
+        /// <param name="email"></param>
+        /// <param name="datePlace"></param>
+        /// <param name="dateScheduled"></param>
+        /// <param name="isCompleted"></param>
+        /// <param name="cart"></param>
+        public Order(int id, int custId, string customerName, string phone, string email, string datePlace, string dateScheduled, bool isCompleted, Cart cart)
+        {
+            this.id = id;
+            this.custId = custId;
+            this.customerName = customerName;
+            this.phone = phone;
+            this.email = email;
+            this.datePlace = datePlace;
+            this.dateScheduled = dateScheduled;
+            this.isCompleted = isCompleted;
+            this.cart = cart;
         }
     }
 }
