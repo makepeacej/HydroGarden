@@ -5,6 +5,10 @@
         public int UserId { get; set; }
         public List<CartItem> Items = new List<CartItem>();
 
+        public void eraseItems()
+        {
+            Items.Clear();
+        }
         public void AddToCart(CartItem c)
         {
             Items.Add(c);

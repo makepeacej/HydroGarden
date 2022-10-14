@@ -19,7 +19,7 @@
         public static string? custName { get; set; }
         public static bool currentUserLogin { get; set; } = false;
 
-        private static Cart cart = new Cart() { UserId = custID};
+        private static Cart cart = new Cart();
         public static Cart getCart() { return cart; }
 
         

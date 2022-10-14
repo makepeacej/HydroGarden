@@ -54,29 +54,11 @@
             this.cart = c;
         }
 
-        /// <summary>
-        /// Constructor for the orders that customers will place for products. This constructor is used for 
-        /// changes from the database. 
-        /// </summary>
-        /// <param name="id">int id</param>
-        /// <param name="custId"></param>
-        /// <param name="customerName"></param>
-        /// <param name="phone"></param>
-        /// <param name="email"></param>
-        /// <param name="datePlace"></param>
-        /// <param name="dateScheduled"></param>
-        /// <param name="isCompleted"></param>
-        /// <param name="cart"></param>
-        public Order(int id, int custId, string customerName, string phone, string email, string datePlace, string dateScheduled, bool isCompleted, Cart cart)
+        public Order(int custId, string datePlace, string dateScheduled, Cart cart)
         {
-            this.id = id;
             this.custId = custId;
-            this.customerName = customerName;
-            this.phone = phone;
-            this.email = email;
             this.datePlace = datePlace;
             this.dateScheduled = dateScheduled;
-            this.isCompleted = isCompleted;
             this.cart = cart;
         }
     }

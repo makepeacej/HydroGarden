@@ -14,7 +14,6 @@ namespace HydroGarden.Controllers
             security.loadProducts();
             productList = Admin.getListOfProducts();
             
-
             return View(productList);
         }
 
@@ -36,12 +35,21 @@ namespace HydroGarden.Controllers
 
         public IActionResult ProcessOrder()
         {
-            //Take order and cust information
-            //Currently, Cust is required to be logged in to place order
-            //Create order object
-            //Add to db
-            //Update cust profile of list of orders
-            return RedirectToAction("Index");
+            
+            if (Admin.currentUserLogin)
+            {
+
+                Order submitOrder = new Order(Admin.custID, DateTime.Now.ToString("yyyy-MM-dd"),
+                    DateTime.Today.AddDays(1).ToString("yyyy-MM-dd"),Admin.getCart());
+                SecurityServices security = new SecurityServices();
+                security.submitOrder(submitOrder);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("SubmitOrderPage");
+            }
+            
         }
 
     }
