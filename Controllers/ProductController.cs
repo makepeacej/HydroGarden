@@ -13,11 +13,11 @@ namespace HydroGarden.Controllers
             SecurityServices security = new SecurityServices();
             security.loadProducts();
             productList = Admin.getListOfProducts();
-            
+
             return View(productList);
         }
 
-        
+
 
         public IActionResult AddToCart(int productID, decimal Qty)
         {
@@ -27,7 +27,7 @@ namespace HydroGarden.Controllers
             Admin.getCart().AddToCart(cartItem);
             return RedirectToAction("Index");
         }
-        
+
         public IActionResult SubmitOrderPage()
         {
             return View(Admin.getCart().Items);
@@ -35,12 +35,12 @@ namespace HydroGarden.Controllers
 
         public IActionResult ProcessOrder()
         {
-            
+
             if (Admin.currentUserLogin)
             {
 
                 Order submitOrder = new Order(Admin.custID, DateTime.Now.ToString("yyyy-MM-dd"),
-                    DateTime.Today.AddDays(1).ToString("yyyy-MM-dd"),Admin.getCart());
+                    DateTime.Today.AddDays(1).ToString("yyyy-MM-dd"), Admin.getCart());
                 SecurityServices security = new SecurityServices();
                 security.submitOrder(submitOrder);
                 return RedirectToAction("Index", "Home");
@@ -49,7 +49,7 @@ namespace HydroGarden.Controllers
             {
                 return RedirectToAction("SubmitOrderPage");
             }
-            
+
         }
 
     }

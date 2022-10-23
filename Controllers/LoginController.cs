@@ -33,6 +33,7 @@ namespace HydroGarden.Controllers
             {
                 user.Id = Admin.custID;
                 Admin.currentUserLogin = true;
+                security.loadUserOrders();
                 return View("LoginSuccess", user);
             }
             else
@@ -44,7 +45,11 @@ namespace HydroGarden.Controllers
 
         public IActionResult ViewProfile()
         {
-            return View("LoginSuccess");
+            //Search previous orders for ID that matches current customer
+            //Bring order and send to this view to display order id and basic
+            //details.
+            
+            return View(Admin.getListOfOrders());
         }
 
         public IActionResult Logout()

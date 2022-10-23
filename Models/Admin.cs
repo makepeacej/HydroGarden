@@ -22,9 +22,9 @@
         private static Cart cart = new Cart();
         public static Cart getCart() { return cart; }
 
-        
 
-       
+
+
 
         /// <summary>
         /// Add a product to the arraylist of products

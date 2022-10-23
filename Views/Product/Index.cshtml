@@ -1,67 +1,70 @@
 ﻿@model IEnumerable<HydroGarden.Models.Product>
 @using HydroGarden.Models
 <link rel="stylesheet" href="~/css/site.css" />
-    <tbody>
-        @if(Model == null)
-        {
-            <h3>Loading Products . . .</h3>
+<tbody>
+    @if (Model == null)
+    {
+        <h3>Loading Products . . .</h3>
 
-        }
-        else{
-            <h3 class="mb-5">Products</h3>
-            var productCount = Model.Count();
-            @if(productCount > 0)
+    }
+    else
+    {
+        <h3 class="mb-5">Products</h3>
+        var productCount = Model.Count();
+        @if (productCount > 0)
+        {
+            const int itemsPerRow = 4;
+            var productRowList = new List<Product>();
+            @for (int i = 0; i < productCount; i++)
             {
-                const int itemsPerRow = 4;
-                var productRowList = new List<Product>();
-                @for(int i =0; i<productCount; i++)
-                {
-                    productRowList = Model.Skip(i * itemsPerRow).Take(itemsPerRow).ToList();
-                    <div class="row mt-3">
-                        @foreach (var item in productRowList)
-                {
-                    <div class="col-md-3 mb-2">
-                        <a href="#">
-                        <div class="card">
-                            <div class="card-body">
-                            
-                                <h5 class="card-title mb-3">
-                                    @item.name
-                                </h5>
-                                <img src=@item.ImageURL.ToString() alt=@item.name>
-                                <p class="card-text">
-                                    <b>$@item.price</b>
-                                </p>
-                                <form asp-action="AddToCart"
-                                    asp-route-productID="@item.id"
-                                    asp-route-Qty="Qty">
-                                    <div class="form-group">
-                                        <label for="Quantity" class="control-label"></label>
-                                        <input for="Quantity" name="Qty" class="form-control" type="text" />
-                                        
+                productRowList = Model.Skip(i * itemsPerRow).Take(itemsPerRow).ToList();
+                <div class="row mt-3">
+                    @foreach (var item in productRowList)
+                    {
+                        <div class="col-md-3 mb-2">
+                            <a href="#">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <h5 class="card-title mb-3">
+                                            @item.name
+                                        </h5>
+                                        <img src=@item.ImageURL.ToString() alt=@item.name>
+                                        <p class="card-text">
+                                            <b>$@item.price</b>
+                                        </p>
+                                        <form asp-action="AddToCart"
+                              asp-route-productID="@item.id"
+                              asp-route-Qty="Qty">
+                                            <div class="form-group">
+                                                <label for="Quantity" class="control-label"></label>
+                                                <input for="Quantity" name="Qty" class="form-control" type="text" />
+
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Add to Cart" class="bnt btn-primary" />
+                                            </div>
+                                        </form>
+
                                     </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Add to Cart" class="bnt btn-primary" />
-                                    </div>
-                                </form>
-                            
+                                </div>
+                            </a>
                         </div>
-                        </div>
-                        </a>
-                    </div>
-                    
-                }
+
+                    }
                 </div>
 
-                
-              }
+
+            }
+
+        }
+}
+</tbody>
+
+
+    
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
         }
         }
-
-    </tbody>
-
-
-}
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

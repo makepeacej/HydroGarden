@@ -31,3 +31,9 @@ img{
     width: 200px;
     height:200px;
 }
+
+table, th, td{
+    border: 2px solid black;
+}
+
+

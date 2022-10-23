@@ -36,7 +36,12 @@ namespace HydroGarden.Services
             {
                 Admin.getCart().eraseItems();
             }
-            
+
+        }
+
+        public void loadUserOrders()
+        {
+            orderDAO.GetUserOrders();
         }
     }
 }

@@ -61,5 +61,10 @@
             this.dateScheduled = dateScheduled;
             this.cart = cart;
         }
+
+        public Order()
+        {
+
+        }
     }
 }

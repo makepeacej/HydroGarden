@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HydroGarden.Models.Order>
+@using HydroGarden.Models
+<link rel="stylesheet" href="~/css/site.css" />
+<body>
+    @if(Model == null){
+        <h3>Welcome to HydroGarden. Feel free to browse our 
+            wares. </h3>
+    }else{
+        <h3 class="mb-5">Orders</h3>
+        
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Date Placed</th>
+                <th>Date Scheduled</th>
+                <th>Status</th>
+            </tr>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.datePlace</td>
+                    <td>@item.dateScheduled</td>
+                    <td>@item.isCompleted</td>
+                </tr>
+            }
+        </table>
+    }
+
+
+</body>
